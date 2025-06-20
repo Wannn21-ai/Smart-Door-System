@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "author": "Wann MQ",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -105.6, "left": -14.36, "attrs": {} },
+    { "type": "wokwi-membrane-keypad", "id": "keypad1", "top": -117.2, "left": 140, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo1", "top": -136.4, "left": -201.6, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -262.4,
+      "left": 120.8,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -55.2,
+      "left": -209.4,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -243.6,
+      "left": -236.2,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -243.6,
+      "left": -159.4,
+      "attrs": { "color": "limegreen" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -168,
+      "left": -250.15,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -168,
+      "left": -173.35,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "servo1:GND", "esp:GND.1", "black", [ "h-48", "v134.4" ] ],
+    [ "servo1:V+", "esp:5V", "red", [ "h-38.4", "v172.9" ] ],
+    [ "lcd1:GND", "esp:GND.1", "black", [ "h-144", "v278.4" ] ],
+    [ "lcd1:VCC", "esp:5V", "red", [ "h-153.6", "v316.9" ] ],
+    [ "esp:13", "keypad1:R1", "green", [ "h-28.65", "v192", "h316.8" ] ],
+    [ "esp:12", "keypad1:R2", "green", [ "h-38.25", "v220.8", "h336.4" ] ],
+    [ "esp:14", "keypad1:R3", "green", [ "h-47.85", "v240", "h355.5" ] ],
+    [ "esp:27", "keypad1:R4", "green", [ "h-57.45", "v259.2", "h374.6" ] ],
+    [ "esp:26", "keypad1:C1", "green", [ "h-67.05", "v278.4", "h393.7" ] ],
+    [ "esp:25", "keypad1:C2", "green", [ "h-76.65", "v297.6", "h412.8" ] ],
+    [ "esp:33", "keypad1:C3", "green", [ "h-86.25", "v316.8", "h432.15" ] ],
+    [ "esp:32", "keypad1:C4", "green", [ "h-95.85", "v336", "h451.5" ] ],
+    [ "esp:21", "lcd1:SDA", "green", [ "h19.2", "v-192.2" ] ],
+    [ "lcd1:SCL", "esp:22", "green", [ "h-28.8", "v144.3" ] ],
+    [ "esp:4", "servo1:PWM", "green", [ "h9.6", "v67.2", "h-326.4", "v-173" ] ],
+    [ "bz1:1", "esp:GND.1", "black", [ "v0" ] ],
+    [ "bz1:2", "esp:15", "green", [ "v86.4", "h268.4", "v-48" ] ],
+    [ "led1:A", "esp:5", "green", [ "v326.4", "h326.4", "v-115.2" ] ],
+    [ "led2:A", "esp:18", "green", [ "v336", "h259.2", "v-134.4" ] ],
+    [ "r1:2", "esp:GND.1", "black", [ "v181.2", "h211.05" ] ],
+    [ "r2:2", "esp:GND.1", "black", [ "v181.2", "h134.25" ] ],
+    [ "led1:C", "r1:1", "green", [ "v0" ] ],
+    [ "led2:C", "r2:1", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
